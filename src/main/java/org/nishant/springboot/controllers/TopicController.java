@@ -5,6 +5,7 @@ import java.util.List;
 import org.nishant.springboot.entity.Topic;
 import org.nishant.springboot.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,5 +18,10 @@ public class TopicController {
 	@RequestMapping("/topics")
 	public List<Topic> getAllTopics() {
 		return topicService.getTopics();
+	}
+	
+	@RequestMapping("/topics/{id}")
+	public Topic getTopic(@PathVariable String id) {
+		return topicService.getTopic(id);
 	}
 }
